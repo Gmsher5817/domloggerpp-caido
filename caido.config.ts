@@ -12,7 +12,7 @@ export default defineConfig({
   id,
   name: "DOMLogger++",
   description: "A browser extension that allows you to monitor, intercept, and debug JavaScript sinks based on customizable configurations. ",
-  version: "1.0.1",
+  version: "1.0.2",
   author: {
     name: "Mizu",
     email: "kevin.mizu@protonmail.com",
