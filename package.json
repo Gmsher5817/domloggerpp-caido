@@ -1,6 +1,6 @@
 {
   "name": "DOMLogger++ Caido",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "A browser extension that allows you to monitor, intercept, and debug JavaScript sinks based on customizable configurations. ",
   "author": "kevin-mizu",
